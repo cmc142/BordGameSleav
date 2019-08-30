@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/Style/CSS/Main.css" rel="stylesheet" />
+    <link href='https://fonts.google.com/specimen/Mukta+Vaani' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Style/Fonte/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Style/CSS/Index.css" rel="stylesheet" />
+    <link href="~/Content/Style/CSS/produkt.css" rel="stylesheet" />
+    <link href="~/Content/Style/CSS/Kontakt.css" rel="stylesheet" />
+ </head>
+<body>
+    <header>
+        @Html.Action("Menu", "Navigation")
+    </header>
+   <main>
+           <h1>@ViewBag.Title</h1>
+
+           @RenderBody()
+
+ 
+       <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+       <script>
+           $(function() {
+               $("#addToCart").click(function () {
+                   $(".hovergrey").toggleClass("effekt");
+               });
+           });
+       </script>
+
+
+       <script src="~/Scripts/jquery.validate.min.js"></script>
+       <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+       <script>
+            $(function () {
+
+                jQuery.validator.addMethod('tjekfortegn', function (value, element, params) {
+                    if (value.match('^[^<>%]*$')) {
+                        return true;
+                    }
+                    return false;
+                }, '');
+
+                jQuery.validator.unobtrusive.adapters.add('tjekfortegn', function (options) {
+                    options.rules['tjekfortegn'] = {};
+                    options.messages['tjekfortegn'] = options.message;
+                });
+
+            }(jQuery));
+       </script>
+
+   </main>
+   <footer>
+       <p>BoarGameSleeves • &copy; @DateTime.Now.Year • Adresse: Bjørnholms Allé 4-6, 8260 Viby J • Denmark • Tlf: 0045 8676 5636</p>
+   </footer>
+</body>
+</html>

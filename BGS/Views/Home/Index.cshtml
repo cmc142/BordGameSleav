@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "BGS shop";
+}
+
+
+@*<style>
+    .center{        
+        text-align:center;
+    }
+    .badge {
+        display:inline-block;
+        padding-left:8px;
+        padding-right:8px;
+        border-radius:50%;
+        color: #ff6a00;
+        padding: 0;
+        line-height: 5em;
+        cursor: pointer;
+    }
+    .badge p {
+       border: 1px solid #f89a14;
+    }
+    .chocolate, .badge:hover {
+       color: black;
+    }
+
+    .mySlides {
+        display: none;
+        width:100%;
+    }
+
+    .w3-left, .w3-right, .w3-badge {
+        cursor: pointer;
+        color: #f6b456;
+        font-size:5em;
+    }
+    .w3-left {
+        float:left;
+    }
+      .w3-right {
+        float:right;
+    }
+    .w3-left:hover, .w3-right:hover, .w3-badge:hover {
+        cursor: pointer;
+        color: #f89a14;
+    }
+</style>*@
+
+    <div class="textcenter">
+        <h2>Produkter silde</h2>
+        <p>I slidet heruder kan du se produkter, som vi anbefaler.</p>
+    </div>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td><div class="w3-left w3-padding-left" onclick="plusDivs(-1)">&#10094;</div></td>
+                <td>
+                    <img class="mySlides" src="~/Content/Images/Sildeshow/forside.jpg" />
+                    <img class="mySlides" src="~/Content/Images/Sildeshow/forside2.jpg" />
+                    <img class="mySlides" src="~/Content/Images/Sildeshow/forside3.jpg" />
+                    <img class="mySlides" src="~/Content/Images/Sildeshow/forside4.jpg" />
+                    <img class="mySlides" src="~/Content/Images/Sildeshow/forside5.jpg" />
+
+                    @* Div til interaktive funktioner  *@
+                    <div class="center">
+                        <span class="badge demo" onclick="currentDiv(1)">&#11044;</span>
+                        <span class="badge demo" onclick="currentDiv(2)">&#11044;</span>
+                        <span class="badge demo" onclick="currentDiv(3)">&#11044;</span>
+                        <span class="badge demo" onclick="currentDiv(4)">&#11044;</span>
+                        <span class="badge demo" onclick="currentDiv(5)">&#11044;</span>
+                    </div>
+                </td>
+                <td><div class="w3-right w3-padding-right" onclick="plusDivs(1)">&#10095;</div></td>
+            </tr>
+        </table>
+    </div>
+
+@*<script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+          showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("demo");
+
+          if (n > x.length) { slideIndex = 1 }
+
+          if (n < 1) { slideIndex = x.length }
+
+
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" chocolate", "");
+          }
+
+          x[slideIndex-1].style.display = "block";
+          dots[slideIndex - 1].className += " chocolate";
+        }
+</script>*@
+
+
+<div class="OmOS margin-top">
+    <h3>Hvem er BoardGameSleeves?</h3> 
+    <p>
+        Vi er en virksomhed, der går op i at give vores kunder kvalitetsprodukter. Vores produkter er lommer til spillekort, som bliver produceret <br />
+        til netop dit behov. Det er i god kvalitet, som sikre optimal beskyttelse af dine spillekort. <br />
+        Kort har det med at tage skade over tid og det er derfor vi har udviklet dette produkt! Nu skal du ikke længere købe kort hele tiden! <br />
+        Med BoardGameSleeves sikrer du dine korts holdbarhed og skal ikke bekymre dig om at passe på dem, før det gør lommerne for dig! <br />
+        Vi er en voksende virksomhed, der har dig og dine behov i fokus og vi vil være med til at give dig den bedste spilleoplevelse.
+    </p>
+</div>
+
+
+<script src="~/Scripts/Slider.js"></script>

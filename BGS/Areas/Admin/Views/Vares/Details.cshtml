@@ -1,0 +1,87 @@
+﻿@model Boardgamesleeves.Models.Vare
+
+@{
+    ViewBag.Title = "Detaljer om";
+}
+
+<div class="formgroup">
+    <h2>.... den valgte varer</h2>
+    <dl class="dl">
+        <dt>
+            @Html.DisplayNameFor(model => model.Stoerrelse.StoerrelsesType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stoerrelse.StoerrelsesType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oprettelsesdato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oprettelsesdato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pris)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beskrivelse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beskrivelse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billedsti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billedsti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LagerAntal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LagerAntal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STK)
+        </dd>
+
+    </dl>
+</div>
+<div class="bundlinks">
+    @Html.ActionLink("Til oversigten", "Index", null, new { @class = "knap" })
+    @Html.ActionLink("Ret", "Edit", new { id = Model.Vareid }, new { @class = "knap" })
+</div>

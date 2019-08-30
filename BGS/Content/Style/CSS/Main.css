@@ -1,0 +1,410 @@
+* {
+  font-family: "Mukta Vaani", sans-serif;
+  font-size: 1em;
+  color: #000;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0; }
+
+/**    Tekster                         */
+h1 {
+  font-size: 2em;
+  text-align: center; }
+
+h2 {
+  font-size: 1.7em; }
+
+h3 {
+  font-size: 1.5em; }
+
+h4 {
+  font-size: 1.2em; }
+
+/**                      Link                                    */
+a, input[sumbit] {
+  -webkit-transition: background-color 1s;
+  /* Safari 3.1 to 6.0 */
+  transition: background-color 1s; }
+
+/**       Semantic tags                                */
+body, header, footer, nav {
+  width: 100%;
+  display: block;
+  clear: both;
+  float: left; }
+
+header, footer {
+  background-color: #f6b456; }
+
+header {
+  position: fixed;
+  float: left;
+  height: 4em;
+  line-height: 4em;
+  z-index: 100000; }
+
+footer {
+  display: block;
+  clear: both;
+  text-align: center;
+  padding: 1% 0;
+  float: left;
+  margin-top: 1.5%; }
+
+main {
+  width: 75%;
+  display: block;
+  clear: both;
+  margin: 8% auto;
+  min-height: 31em; }
+
+/**    Extend klasser                            */
+.textdecorationnone, .editLink {
+  text-decoration: none; }
+
+.margin-top, .dl dt {
+  margin-top: 2%;
+  display: block;
+  clear: both; }
+
+.fejlbesked {
+  display: block;
+  clear: both;
+  font-style: italic;
+  float: right; }
+
+.errorKurv {
+  text-align: center;
+  font-style: italic; }
+
+.text-fokus {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-style: italic; }
+
+.bold, .dl dt {
+  font-weight: bold; }
+
+.textcenter {
+  text-align: center; }
+
+.noteVarid {
+  font-style: italic;
+  font-size: 0.85em; }
+
+/**      Header klasser                  */
+.logo img {
+  height: 3em;
+  margin-top: 2%; }
+
+.iconKurv {
+  position: relative;
+  display: inline-block;
+  margin-right: 7%;
+  cursor: pointer;
+  float: right; }
+  .iconKurv span {
+    line-height: inherit; }
+
+.kurvIndhold {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 400%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  padding: 75%;
+  z-index: 1;
+  float: left;
+  line-height: normal; }
+
+.iconKurv:hover .kurvIndhold {
+  display: block;
+  float: left;
+  margin-left: -225%;
+  margin-top: -45%; }
+
+.hovergrey, .adminlink, .knapslet {
+  -webkit-transition: color 1s;
+  /* Safari 3.1 to 6.0 */
+  transition: color 1s; }
+  .hovergrey:hover, .adminlink:hover, .knapslet:hover {
+    color: #555; }
+
+.adminlink {
+  float: right; }
+
+.leftmenu {
+  width: 25%;
+  float: left;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: inline-block; }
+
+.centermenu {
+  width: 45%;
+  float: left;
+  text-align: center; }
+  .centermenu a {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    padding: 0 4%;
+    font-weight: bold; }
+    .centermenu a:hover {
+      background-color: #f89a14; }
+
+.rightmenu {
+  float: right;
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 3.5%;
+  width: 20%; }
+  .rightmenu a {
+    line-height: inherit;
+    display: inline-block; }
+
+.effekt {
+  text-shadow: 0 0 0.3em #fff; }
+
+/**         knapper                       */
+.knap {
+  color: #fff;
+  background-color: #44c95a;
+  padding: 1% 4%;
+  text-decoration: none; }
+  .knap:hover {
+    background-color: #309640; }
+
+.knapSmall {
+  width: 100%;
+  color: #fff;
+  background-color: #44c95a;
+  padding: 1% 4%;
+  text-decoration: none; }
+  .knapSmall:hover {
+    background-color: #309640; }
+
+.knapslet {
+  background: none; }
+
+/**           Ikoner                         */
+.fa-2x {
+  font-size: 1.5em; }
+
+.fa-3x {
+  font-size: 2em; }
+
+/**        Links                         */
+.bundlinks, .bundlinksTjekud {
+  width: 100%;
+  text-align: center;
+  display: block;
+  clear: both;
+  float: left;
+  margin-top: 7%; }
+
+.bundlinksTjekud {
+  margin-top: 1%;
+  line-height: 0; }
+
+.bundlinksKontakt {
+  display: block;
+  clear: both;
+  width: 104%;
+  text-align: right;
+  float: left;
+  margin-top: 1%;
+  padding: 0.1em; }
+  .bundlinksKontakt .knap {
+    float: right; }
+
+/**       Kontrols og formularer                       */
+.formgroup {
+  width: 50%;
+  margin: 2% auto; }
+
+.kontrol, .txtArea {
+  width: 100%;
+  display: block;
+  clear: both;
+  border: 0.1em solid #222;
+  padding: 1% 2%;
+  color: #555; }
+
+.txtArea {
+  height: 7em;
+  resize: none; }
+
+.ddl, .ddl2 {
+  width: 20%;
+  overflow: auto;
+  text-align: center;
+  border: 0.1em solid #222; }
+
+.ddl:focus, .ddl2:focus, .kontrol:focus, .txtArea:focus {
+  outline: none;
+  border: 0.1em solid #ccc; }
+
+.ddl option, .ddl2 option {
+  margin: 2%;
+  width: 100%;
+  float: left;
+  font-style: normal;
+  font-weight: normal;
+  outline: none;
+  border: none; }
+
+.ddl option:checked, .ddl2 option:checked {
+  color: #309640;
+  font-weight: bold; }
+
+.ddl2 {
+  width: 104.3%; }
+
+/*       Betalingsflow style                         */
+.produkt {
+  width: 100%;
+  display: block;
+  clear: both;
+  border-bottom: 0.1em solid #777;
+  padding: 1.5% 2%;
+  float: left; }
+
+.titel {
+  font-size: 1.3em; }
+
+.totalKurv {
+  font-weight: bold;
+  float: right;
+  padding-right: 7%;
+  font-size: 1.2em; }
+
+.imgkurv {
+  float: right;
+  max-height: 8em;
+  max-width: 100%; }
+
+/*        Grid system                                 */
+.col-1 {
+  width: 3.33333%;
+  float: left;
+  margin-right: 5%; }
+
+.col-2 {
+  width: 11.66667%;
+  float: left;
+  margin-right: 5%; }
+
+.col-3 {
+  width: 20%;
+  float: left;
+  margin-right: 5%; }
+
+.col-4 {
+  width: 28.33333%;
+  float: left;
+  margin-right: 5%; }
+
+.col-5 {
+  width: 36.66667%;
+  float: left;
+  margin-right: 5%; }
+
+.col-6 {
+  width: 45%;
+  float: left;
+  margin-right: 5%; }
+
+.col-7 {
+  width: 53.33333%;
+  float: left;
+  margin-right: 5%; }
+
+.col-8 {
+  width: 61.66667%;
+  float: left;
+  margin-right: 5%; }
+
+.col-9 {
+  width: 70%;
+  float: left;
+  margin-right: 5%; }
+
+.col-10 {
+  width: 78.33333%;
+  float: left;
+  margin-right: 5%; }
+
+.col-11 {
+  width: 86.66667%;
+  float: left;
+  margin-right: 5%; }
+
+.col-12 {
+  width: 95%;
+  float: left; }
+
+/**          admin style                            */
+.opretbox {
+  display: block;
+  clear: both;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  text-align: center; }
+
+.tablebox {
+  width: 97%;
+  max-height: 30em;
+  overflow: auto;
+  float: left; }
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  float: left; }
+  .table tr {
+    border-bottom: 0.1em solid #000; }
+  .table td, .table th {
+    border-right: 0.1em solid #000;
+    padding: 0.2% 0.5%; }
+  .table td:last-child, .table th:last-child, .table tr:last-child {
+    border: none; }
+
+.editLink {
+  -webkit-transition: color 1s;
+  /* Safari 3.1 to 6.0 */
+  transition: color 1s;
+  color: #44c95a;
+  display: block;
+  font-weight: bold;
+  line-height: 110%; }
+  .editLink:hover {
+    color: #309640; }
+
+@media screen and (max-width: 1020px) {
+  .leftmenu img {
+    width: 80%;
+    height: auto; } }
+
+@media screen and (max-width: 720px) {
+  * {
+    font-size: 0.8em; }
+  .kortifame {
+    height: 125px; }
+  .col-3 {
+    width: 45%; } }
+
+@media screen and (max-width: 440px) {
+  .rightmenu .fa-2x {
+    font-size: 1em; }
+  .rightmenu .fa-3x {
+    font-size: 1.5em; }
+  * {
+    font-size: 0.9em; }
+  .kortifame {
+    height: 62px; }
+  .col-3 {
+    width: 100%; } }

@@ -1,0 +1,164 @@
+﻿<div class="overskrifter col-12">
+    @{
+        ViewBag.Title = "Produktvisning";
+    }
+    @model Boardgamesleeves.Models.ViewModels.ProduktVisModel
+
+</div>
+
+<div class="produktbilledslider">
+    <div class="produktinfo col-4">
+        <strong>Navn:</strong> @Model.vare.Titel <br />
+        <strong>Kategori:</strong> @Model.vare.Kategori <br />
+        <strong>Størrelse:</strong> @Model.vare.Stoerrelse.Bredde x @Model.vare.Stoerrelse.Hoejde mm <br />
+        <strong>Pr. pakke:</strong> @Model.vare.STK stk. slevees<br />
+        <strong>Lagerstatus:</strong>
+
+        @if (Model.vare.LagerAntal > 0)
+        {
+            <div class="paalager"><i>På lager</i></div> // skal gerne have en color: green i css
+        }
+        else
+        {
+            <div class="ikkepaalager"><i>Udsolgt</i></div> // skal gerne have en color: red i css
+        }
+        <br />
+        <strong>Pris:</strong> @Model.vare.Pris kr.<br /> <br />
+
+        <br /> <br />
+
+
+
+        @using (Html.BeginForm("AddTilKurv", "Kurv")) // action methode og så controller, skal kobles på Cecilias
+        {
+            @Html.Hidden("Vareid", Model.vare.Vareid)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+
+            @Html.DropDownListFor(model => model.ValgtKoebsAntal,
+                                           new SelectList(Model.KoebsAntal,
+                                               Model.ValgtKoebsAntal),
+                                       new { @class = "ddl" })
+
+            <input type="submit" class="knap" value="Tilføj til kurv" id="addToCart" />
+        }
+    </div>
+     <div class="col-5">
+        <h6>Billeder af pordukt og spil det kan bruges til</h6>
+
+
+        <div class="pvSildeContainer" style="max-width:800px">
+            <table>
+                <tr>
+                    <td><div class="w3-left" onclick="plusDivs(-1)">&#10094;</div></td>
+                    <td>
+                        <div class="billedeboxPVslide" style="width:100%">
+                            <img class="mySlides" src="~/Content/Images/Sildeshow/Produktslider1.jpg" />
+                            <img class="mySlides" src="~/Content/Images/Sildeshow/Produktslider2.jpg" />
+                            <img class="mySlides" src="~/Content/Images/Sildeshow/Produktslider3.jpg" />
+                            <img class="mySlides" src="~/Content/Images/Sildeshow/Produktslider4.jpg" />
+                            <img class="mySlides" src="~/Content/Images/Sildeshow/Produktslider5.jpg" />
+                            <img class="mySlides" src="~/Content/Images/Sildeshow/Produktslider6.jpg" />
+                            </div>
+                            @* Div til interaktive funktioner  *@
+                            <div class="center" style="width:100%">
+                                <span class="badge demo" onclick="currentDiv(1)">&#11044;</span>
+                                <span class="badge demo" onclick="currentDiv(2)">&#11044;</span>
+                                <span class="badge demo" onclick="currentDiv(3)">&#11044;</span>
+                                <span class="badge demo" onclick="currentDiv(4)">&#11044;</span>
+                                <span class="badge demo" onclick="currentDiv(5)">&#11044;</span>
+                                <span class="badge demo" onclick="currentDiv(6)">&#11044;</span>
+                            </div>
+</td>
+                    <td><div class="w3-right w3-padding-right" onclick="plusDivs(1)">&#10095;</div></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="break col-3"></div>
+
+</div>
+
+
+<br /> <br />
+
+<div class="detalje_wrap col-12">
+    <div class="vismeredetaljer" onclick="visEllerSkjul()"><strong>Detaljer</strong><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+
+
+
+    <div id="detaljer">
+        <strong>Beskrivelse:</strong> @Model.vare.Beskrivelse<br />
+        <br /><h4>her er en liste over spil der passer til:</h4>
+        <p>
+            -7 Wonders <br />
+            -Acquire <br />
+            -Agricola <br />
+            -Aladdin's Dragons <br />
+            -Anno 1701 <br />
+            
+        </p>
+    </div>
+
+    <script type='text/javascript'>
+        function visEllerSkjul() {
+
+            var gem = document.getElementById("detaljer");
+            if (gem.style.display == "block") {
+                gem.style.display = "none";
+
+            }
+            else {
+                gem.style.display = "block";
+            }
+        }
+    </script>
+
+
+</div>
+<br /> <br />
+<div class="break2 col-12"></div>
+<div class="lignendeprodukter_wrap col-12">
+
+    <div class="vismereprodukter" onclick="visEllerSkjul2()"><strong>Lignende produkter</strong><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+
+
+    <div id="lignende">
+        <div class="col-4"> @*LilleForslag*@
+            <a href="Produktkatalog">
+                <h3>Små Sleeves</h3>
+                <img src="~/Content/Images/Produkt/Small.jpg" class="imgforslag" />
+            </a>
+        </div>
+        <div class="col-4"> @*MediumForslag*@
+            <a href="Produktkatalog">
+                <h3>Medium Sleeves</h3>
+                <img src="~/Content/Images/Produkt/Medium.jpg" class="imgforslag" />
+            </a>
+        </div>
+        <div class="col-4"> @*MiniForslag*@
+            <a href="Produktkatalog">
+                <h3>Mini Sleeves</h3>
+                <img src="~/Content/Images/Produkt/Mini.jpg" class="imgforslag" />
+            </a>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        function visEllerSkjul2() {
+
+            var gem = document.getElementById("lignende");
+            if (gem.style.display == "block") {
+                gem.style.display = "none";
+
+
+            }
+            else {
+                gem.style.display = "block";
+            }
+        }
+    </script>
+
+    <script src="~/Scripts/Slider.js"></script>
+</div>

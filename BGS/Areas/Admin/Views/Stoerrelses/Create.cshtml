@@ -1,0 +1,31 @@
+﻿@model Boardgamesleeves.Models.Stoerrelse
+
+@{
+    ViewBag.Title = "Opret Stoerrelse";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="formgroup">
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "errorKurv" })
+
+        @Html.LabelFor(model => model.Bredde, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Bredde, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Bredde, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Hoejde, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Hoejde, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Hoejde, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.StoerrelsesType, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.StoerrelsesType, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.StoerrelsesType, "", new { @class = "fejlbesked" })
+
+        <div class="bundlinks">
+            @Html.ActionLink("Til oversigten", "Index", null, new { @class = "knap" })
+            <input type="submit" value="Opret" class="knap" />
+        </div>
+        </div>
+   }

@@ -1,0 +1,24 @@
+﻿@model Boardgamesleeves.Models.Vare
+<div class="imgcontainer">
+    <div class="textcenter">
+        <strong>@Model.Titel</strong><br />
+    </div>
+
+    <span>
+        <img src="/Content/Images/Produkt/@Model.Billedsti" alt="@Model.Titel"
+             OnError="this.src = '/Content/Images/Produkt/Default.png'" class="imgKata" />
+        <br />
+    </span>
+
+
+    @using (Html.BeginForm("Produktvisning", "Produktkatalog")) // action methode og så controller
+    {
+        @Html.Hidden("Vareid", Model.Vareid)
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" class="knapSmall" value="Se detaljer" />
+    }
+</div>
+
+
+
+

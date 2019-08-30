@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Boardgamesleeves.Models.Vare>
+
+@{
+    ViewBag.Title = "Administration af varer";
+}
+
+<div class="opretbox">
+    @Html.ActionLink("Opret ny", "Create", null, new { @class="knap"})
+</div>
+<div class="tablebox">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Stoerrelse.StoerrelsesType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oprettelsesdato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pris)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beskrivelse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Billedsti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LagerAntal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STK)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stoerrelse.StoerrelsesType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oprettelsesdato)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pris)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kategori)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beskrivelse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Billedsti)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LagerAntal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STK)
+                </td>
+                <td>
+
+                    @Html.ActionLink("[Vis]", "Details", new { id = item.Vareid }, new { @class = "editLink" })
+                    @Html.ActionLink("[Ret]", "Edit", new { id = item.Vareid }, new { @class = "editLink" })
+                    @Html.ActionLink("[Slet]", "Delete", new { id = item.Vareid }, new { @class = "editLink" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,40 @@
+.container {
+  display: block;
+  width: 100%;
+  text-align: center; }
+  .container table {
+    margin: 0 auto; }
+  .container .center {
+    text-align: center; }
+  .container .badge {
+    display: inline-block;
+    border-radius: 50%;
+    color: #ff6a00;
+    padding: 0;
+    line-height: 5em;
+    cursor: pointer; }
+  .container .badge p {
+    border: 1px solid #f89a14; }
+  .container .chocolate, .container .badge:hover {
+    color: black; }
+  .container .mySlides {
+    display: none;
+    width: 100%; }
+  .container .w3-left1, .container .w3-right1, .container .w3-badge1 {
+    cursor: pointer;
+    color: #f6b456;
+    font-size: 5em; }
+  .container .w3-left1 {
+    float: left; }
+  .container .w3-right1 {
+    float: right; }
+  .container .w3-left1:hover, .container .w3-right1:hover, .container .w3-badge1:hover {
+    cursor: pointer;
+    color: #f89a14; }
+
+.forside {
+  margin-bottom: 5%; }
+
+.OmOS {
+  background-color: #eeeeee;
+  padding: 2%; }

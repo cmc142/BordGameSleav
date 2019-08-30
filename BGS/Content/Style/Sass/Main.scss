@@ -1,0 +1,500 @@
+﻿$MuktaVaani: 'Mukta Vaani', sans-serif;   
+$FontSizeBase: 1;
+$FontSizeEnhed: em;
+$Enhed:%;
+
+$BasecolorGoernLys: #44c95a;
+$BasecolorGoernMoerk: #309640;
+
+$BasecolorOrangeLys: #f6b456;
+$BasecolorOrangeMoerk: #f89a14;
+
+$width: 100;
+$margin: 5;
+
+@mixin FontSizeSetup ($value:1) {
+   font-size: $FontSizeBase*$value+$FontSizeEnhed;
+}
+
+@mixin Fontalign ($value:left) {
+   text-align: $value;
+}
+
+@mixin WidthSetup ($value:1) {
+   width: $width*$value+$Enhed;
+}
+@mixin BlockElement ($value:1) {
+    display: block;
+    clear: both;
+}
+
+* {
+    font-family: $MuktaVaani;
+    @include FontSizeSetup(1);
+    color: #000;
+    border: none;
+    outline: none;
+    padding:0;
+    margin:0;
+       
+}
+
+/**    Tekster                         */
+h1 {
+     @include FontSizeSetup(2); 
+     @include Fontalign(center);
+}
+
+h2 {
+    @include FontSizeSetup(1.7); 
+}
+
+
+h3 {
+     @include FontSizeSetup(1.5); 
+}
+
+
+h4 {
+    @include FontSizeSetup(1.2); 
+}
+
+/**                      Link                                    */
+a, input[sumbit] {
+     -webkit-transition: background-color 1s; /* Safari 3.1 to 6.0 */
+     transition:  background-color 1s;
+}
+
+
+/**       Semantic tags                                */
+body, header, footer, nav {
+    @include WidthSetup(1);
+    @include BlockElement;
+    float:left;
+}
+
+header, footer {
+    background-color: $BasecolorOrangeLys;
+}
+
+header {   
+    position:fixed;
+    float: left;
+    height: 4+$FontSizeEnhed;
+    line-height: 4+$FontSizeEnhed;
+    z-index: 100000;
+}
+
+footer {
+    @include BlockElement;
+    @include Fontalign(center);
+    padding: 1+$Enhed 0;
+    float:left;
+    margin-top:1.5+$Enhed;
+}
+
+main {
+    @include WidthSetup(0.75);
+    @include BlockElement;
+    margin:8+$Enhed auto;
+    min-height: 31em;
+}
+
+/**    Extend klasser                            */
+.textdecorationnone {
+    text-decoration: none;
+}
+
+.margin-top{    
+    margin-top: 2+$Enhed;
+    @include BlockElement;
+}
+.fejlbesked {    
+   @include BlockElement;
+   font-style: italic;
+   float: right;   
+}
+.errorKurv {
+    @include Fontalign(center);
+    font-style: italic;
+}
+
+.text-fokus{
+   @include Fontalign(center);
+    font-weight: bold;
+    @include FontSizeSetup(1.2);
+    font-style: italic;
+    
+}
+.bold{
+   font-weight: bold;
+}
+
+.textcenter{
+    @include Fontalign(center);
+}
+
+.noteVarid {
+    font-style: italic;
+    @include FontSizeSetup(0.85);
+}
+
+/**      Header klasser                  */
+.logo img{
+   height:3em;
+   margin-top: 2+$Enhed;
+}
+
+.iconKurv {
+   position: relative;
+   display: inline-block;
+   margin-right: 7+$Enhed;
+   cursor: pointer;
+   float: right;
+     
+   span {
+       line-height: inherit;
+   }
+}
+
+.kurvIndhold {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9; 
+   @include WidthSetup(4);
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+   padding: 75+$Enhed;
+   z-index: 1;
+   float: left;
+   line-height: normal;
+}
+
+.iconKurv:hover .kurvIndhold {
+   display: block;
+   float:left;
+   margin-left: -225+$Enhed;
+   margin-top: -45+$Enhed;
+}
+
+.hovergrey {
+     -webkit-transition: color 1s; /* Safari 3.1 to 6.0 */
+     transition:  color 1s;
+
+      &:hover {
+        color: #555;
+    }
+}
+
+.adminlink {
+    float: right; 
+    @extend .hovergrey;
+}
+
+.leftmenu {
+   @include WidthSetup(0.25);
+   float:left; 
+   margin-left: 2+$Enhed;
+   margin-right: 2+$Enhed;
+   display: inline-block;
+}
+.centermenu {
+    @include WidthSetup(0.45);
+    float: left;
+    @include Fontalign(center);
+    a {
+        text-decoration: none;
+        color: #333; 
+        display: inline-block;
+        padding: 0 4+$Enhed;
+        font-weight: bold;
+        &:hover {
+           background-color: $BasecolorOrangeMoerk;
+        }
+    }
+}
+
+.rightmenu {
+   float:right; 
+   display: inline-block;
+   margin-left: 2+$Enhed;
+   margin-right: 3.5+$Enhed;
+   @include WidthSetup(0.20);
+   a {
+
+       line-height: inherit;
+       display: inline-block;
+    }
+}
+
+.effekt {
+     text-shadow: 0 0 0.3em #fff;
+}
+
+/**         knapper                       */
+.knap {
+    color: #fff;
+    background-color: $BasecolorGoernLys;
+    padding: 1+$Enhed 4+$Enhed;
+    text-decoration: none;
+    
+    &:hover {
+        background-color: $BasecolorGoernMoerk;
+    }
+}
+
+.knapSmall {
+    @include WidthSetup(1);
+    color: #fff;
+    background-color: $BasecolorGoernLys;
+    padding: 1+$Enhed 4+$Enhed;
+    text-decoration: none;
+    
+    &:hover {
+        background-color: $BasecolorGoernMoerk;
+    }
+}
+
+.knapslet {
+   background: none;
+   @extend .hovergrey
+}
+
+
+/**           Ikoner                         */
+.fa-2x {
+    @include FontSizeSetup(1.5);
+}
+
+.fa-3x {
+    @include FontSizeSetup(2);
+}
+
+
+
+/**        Links                         */
+.bundlinks {
+    @include WidthSetup(1);
+    @include Fontalign(center);
+    @include BlockElement;
+    float: left;
+    margin-top: 7+$Enhed;
+}
+
+.bundlinksTjekud{
+    @extend .bundlinks;
+    margin-top: 1+$Enhed;
+    line-height: 0;
+}
+
+.bundlinksKontakt{
+    @include BlockElement;
+   @include WidthSetup(1.04);
+   @include Fontalign(right);
+   float: left;
+   margin-top:1+$Enhed;
+   padding: 0.1em;
+   .knap {
+       float: right;
+   }
+}
+
+/**       Kontrols og formularer                       */
+.formgroup {
+       @include WidthSetup(0.5);
+       margin: 2% auto;
+}
+
+.kontrol {
+    @include WidthSetup(1);
+    @include BlockElement;    
+    border: 0.1em solid #222;
+    padding: 1+$Enhed 2+$Enhed;
+    color: #555;
+}
+.txtArea {
+    @extend .kontrol;  
+    height: 7+$FontSizeEnhed;
+    resize: none;
+}
+
+.ddl {
+    @include WidthSetup(0.2);
+    overflow: auto;
+    text-align:center;  
+    border: 0.1em solid #222;
+}
+
+.ddl:focus, .kontrol:focus
+{
+    outline: none;
+    border: 0.1em solid #ccc;
+}
+
+.ddl option {
+   margin: 2+$Enhed;    
+   width: 100+$Enhed;  
+   float: left;
+   font-style: normal;
+   font-weight: normal;
+   outline: none; 
+   border:none; 
+}
+
+.ddl option:checked 
+{ 
+    color: $BasecolorGoernMoerk;
+    font-weight: bold;
+}
+
+.ddl2{
+     @extend .ddl;
+     @include WidthSetup(1.043);
+}
+
+
+/*       Betalingsflow style                         */
+.produkt {
+     @include WidthSetup(1);     
+     @include BlockElement;
+     border-bottom: 0.1em solid #777;
+     padding: 1.5+$Enhed 2+$Enhed;
+     float:left;
+}
+
+.titel {
+    @include FontSizeSetup(1.3);
+}
+
+.totalKurv {
+    font-weight: bold;
+    float: right;
+    padding-right: 7+$Enhed;
+    @include FontSizeSetup(1.2);
+}
+
+.imgkurv {
+   float:right;
+   max-height: 8+$FontSizeEnhed;
+   max-width: 100+$Enhed;
+}
+
+/*        Grid system                                 */
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: ($width/12*$i)-$margin+$Enhed;
+        float: left;
+
+        @if($i != 12){
+            margin-right: $margin+$Enhed;
+        }
+    }
+}
+
+/**          admin style                            */
+.dl dt{
+    @extend .bold;
+    @extend .margin-top;
+}
+.opretbox{
+    @include BlockElement;
+    margin-top: 3+$Enhed;
+    margin-bottom: 3+$Enhed;
+     @include Fontalign(center);
+}
+.tablebox {
+    @include WidthSetup(0.97); 
+    max-height: 30+$FontSizeEnhed;
+    overflow: auto;
+    float: left;
+}
+.table {
+    @include WidthSetup(1); 
+    @include Fontalign(left);
+    border-collapse: collapse;    
+    float: left;
+   tr {
+       border-bottom: 0.1em solid #000;
+   }
+   td, th{
+       border-right: 0.1em solid #000;
+       padding: 0.2+$Enhed 0.5+$Enhed;
+   }
+   td:last-child, th:last-child, tr:last-child{
+       border: none;
+   }
+}
+
+
+
+ 
+.editLink {   
+    -webkit-transition: color 1s; /* Safari 3.1 to 6.0 */
+     transition:  color 1s;
+    color: $BasecolorGoernLys; 
+    @extend .textdecorationnone;
+    display: block;
+    font-weight: bold;
+    line-height: 110+$Enhed;
+
+    &:hover{
+        color: $BasecolorGoernMoerk; 
+    }
+ }
+
+
+
+@media screen and (max-width:1020px){
+    .leftmenu img{
+        @include WidthSetup(0.80);
+        height: auto;
+    }
+}
+
+
+
+@media screen and (max-width:720px){
+  
+     *{
+        @include FontSizeSetup(0.8);
+    }
+   
+     .kortifame{
+     height:125px;
+
+ }
+
+       .col-3{
+           
+             width:45%;
+       }     
+}
+
+
+
+@media screen and (max-width:440px){
+    .rightmenu{
+        .fa-2x {
+        @include FontSizeSetup(1);
+        
+
+        }
+        .fa-3x {
+            @include FontSizeSetup(1.5);
+            
+        }
+    }
+    
+    *{
+        @include FontSizeSetup(0.9);
+    }
+
+
+     .kortifame{
+         height:62px;
+    }
+
+       .col-3{
+         
+           width:100%;
+       }
+}

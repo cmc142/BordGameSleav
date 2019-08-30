@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Produktkatalog";
+}
+
+@using Boardgamesleeves.Models;
+
+@* For at tilgå SideLinks *@
+@using Boardgamesleeves.HtmlHelpers;
+
+@* Bruger partial view *@
+@model Boardgamesleeves.Models.ViewModels.ProduktListeViewModel
+
+
+<div class= "col-12 margin-top">
+    @if (Model.Varer.Count() > 0)
+    {
+        <h3>Sleeves</h3>
+        foreach (Vare vare in Model.Varer.ToList())
+        {
+            <div class="col-3">
+               @Html.Partial("ProduktOversigtSleeve", vare)
+                <br/>
+            </div>
+        } @* Foreach slutter *@
+    }
+</div>
+
+
+@* Paging og kategori sortering *@
+<div class="paging col-12 margin-top">
+    @Html.SideLinks(Model.SideopdelingsInfo, x => Url.Action("Produktkatalog", new { side = x, category = Model.NuvaerendeKategori }))
+</div>
+

@@ -1,0 +1,179 @@
+/*scss for produktkatalog*/
+.imgcontainer {
+  width: 100%;
+  height: 20em;
+  text-align: center;
+  position: relative;
+  z-index: 0; }
+  .imgcontainer .imgKata {
+    max-height: 15em;
+    max-width: 12em; }
+  .imgcontainer .knapSmall {
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+
+.produktKata {
+  float: left;
+  width: 200px; }
+
+.paging {
+  text-align: center; }
+  .paging a {
+    margin-left: 0.5%;
+    text-decoration: none; }
+    .paging a:hover {
+      color: #44c95a; }
+
+/*scss for produktvisning*/
+.overskrifter {
+  margin-bottom: 10%; }
+
+.produktinfo {
+  float: right; }
+
+.detalje_wrap {
+  background-color: #eeeeee;
+  cursor: default; }
+  .detalje_wrap .vismeredetaljer {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    background-color: #44c95a;
+    cursor: pointer; }
+
+#detaljer {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 20px; }
+
+.vismereprodukter {
+  background-color: #44c95a;
+  cursor: pointer;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 20px; }
+
+#lignende {
+  background-color: #eeeeee;
+  cursor: default;
+  float: left;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center; }
+  #lignende a {
+    text-decoration: none;
+    font-size: 0.85em; }
+  #lignende .col-4 {
+    margin-left: 2.5%;
+    margin-right: 2.5%; }
+    #lignende .col-4 img {
+      width: 45%; }
+
+/*.LilleForslag img{
+    height: 10%;
+    width:10%;
+    float:left;
+    margin-left:-140px;
+    margin-top:10px;
+    text-align:center;
+ }
+    .LilleForslag h3{
+      float:left;
+    margin-top:180px;
+    margin-left:20px;
+   background-color:#44c95a; 
+}
+
+.MediumForslag img{
+    height:10%;
+    width:10%;
+    float:left;
+    margin-left:-150px;
+    margin-top:10px;
+}
+    .MediumForslag h3
+     {
+         float:left;
+    margin-left:180px;
+    margin-top:180px;
+     background-color:#44c95a; 
+    }
+
+
+.MiniForslag img{
+    height:10%;
+    width:10%;
+    float:left;
+    margin-left:820px;
+    margin-top:-200px;
+}
+
+.MiniForslag h3
+     {
+         float:left;
+    margin-left:250px;
+    margin-top:179px;
+     background-color:#44c95a; 
+    }*/
+.produktbilledslider {
+  margin-top: 1%; }
+
+.center {
+  text-align: center; }
+
+.badge {
+  display: inline-block;
+  padding-right: 1%;
+  border-radius: 10%;
+  color: #ff6a00;
+  padding: 0;
+  line-height: 5em;
+  cursor: pointer; }
+
+.badge p {
+  border: 1px solid #f89a14;
+  width: 80%;
+  margin-top: 50px; }
+
+.chocolate, .badge:hover {
+  color: black; }
+
+.mySlides {
+  display: none;
+  width: 30em;
+  float: none;
+  margin-top: 1%; }
+
+.w3-left, .w3-right, .w3-badge {
+  cursor: pointer;
+  color: #f6b456;
+  font-size: 50px; }
+
+.w3-left {
+  float: left;
+  width: 50px; }
+
+.w3-right {
+  float: left;
+  margin-right: 1%;
+  border: 0px;
+  padding-right: 0%;
+  width: 50px; }
+
+.w3-left:hover, .w3-right:hover, .w3-badge:hover {
+  cursor: pointer;
+  color: #f89a14; }
+
+div.w3-left w3-padding-left {
+  margin: 0px;
+  padding: 0px; }
+
+.break {
+  margin-left: 20%; }
+
+.break2 {
+  margin-top: 3%; }
+
+.imgforslag {
+  width: 100%; }

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Din Kurv";
+}
+@model Boardgamesleeves.Models.ViewModels.KurvVisModel
+@using Boardgamesleeves.Models.ViewModels;
+
+@*@Html.Action("VaretIKurv")*@
+
+
+@if (Model == null)
+{
+    <p class="errorKurv">Mangler data til visningen. - prøv senere.</p>
+}
+else if (Model.Kurv == null)
+{
+    <p class="errorKurv">Mangler produkter at vise.</p>
+}
+else if (Model.Kurv.KurvVareList == null)
+{
+    <p class="errorKurv">Ingen produkter liste.</p>
+}
+else if (Model.Kurv.KurvVareList.Count() <= 0)
+{
+    <p class="errorKurv">Ingen produkter er tilføjet.</p>
+}
+else
+{
+    foreach (KurvVare p in Model.Kurv.KurvVareList)
+    {
+        <div class="produkt">
+            <div class="col-3">
+                <img src="/Content/Images/Produkt/@p.Vare.Billedsti" onerror="this.src = '/Content/Images/Produkt/Default.png'" alt="@p.Vare.Titel" class="imgkurv" /> <br />
+
+            </div>
+            <div class="col-7">
+               <p class="titel bold">@p.Vare.Titel</p>
+                <p>
+                    <span class="bold">Størrelse:</span> @p.Vare.Stoerrelse.Hoejde X @p.Vare.Stoerrelse.Bredde
+                </p>              
+                     
+                    @using (Html.BeginForm("Index", "Kurv"))
+                    {
+                        @Html.Hidden("Vareid", @p.Vare.Vareid)
+                        <p>
+                            <span class="bold">Antal:</span>
+                      
+                            @Html.DropDownList("Antal", Model.ViewListe(@p.Antal), new
+                            {
+                               @onchange = "this.form.submit();",
+                               @class = "ddl"
+                            })
+                        </p>
+                    }
+                <p><span class="bold">STK Pris:</span> @p.Vare.Pris.ToString("n") DKK</p>
+                <p><span class="bold">Samlet pris:</span> @((@p.Vare.Pris * @p.Antal).ToString("n")) DKK</p>
+            </div>
+            <div class="col-2">
+         
+                <br/><br />
+                @using (Html.BeginForm("RemoveFraKurv", "Kurv"))
+                {
+                    @Html.Hidden("Vareid", @p.Vare.Vareid)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <button class="knapslet fa fa-trash fa-2x " type="submit">
+                    </button>
+                } 
+            </div>
+        </div>
+    }
+
+      <div class="produkt">
+          <p class="totalKurv">Total pris:  @Model.Kurv.TotalPris.ToString("n") DKK </p>
+      </div>
+
+}
+
+
+<div class="bundlinks">
+    <a class="knap" href="@Model.ReturnUrl">Køb mere</a>
+
+    @Html.ActionLink("Bestil", "TjekUd", null, new { @class = "knap" })
+</div>

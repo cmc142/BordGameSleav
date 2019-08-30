@@ -1,0 +1,43 @@
+﻿@using Boardgamesleeves.Models.ViewModels;
+
+@model Boardgamesleeves.Models.ViewModels.KurvVisModel
+
+@* IEnumerable<KurvVare>*@
+
+@if (Model == null)
+{
+    <p class="errorKurv">Mangler data til visningen. - prøv senere.</p>
+}
+else if (Model.Kurv.KurvVareList == null)
+{
+    <p class="errorKurv">Mangler produkter at vise.</p>
+}
+else if (Model.Kurv.KurvVareList.Count() <= 0)
+{
+    <p class="errorKurv">Ingen produkter er tilføjet.</p>
+}
+else
+{
+    foreach (KurvVare p in Model.Kurv.KurvVareList)
+    {
+        <div class="produkt">
+            <div class="produktbillede">
+                @p.Vare.Billedsti
+            </div>
+            <div class="produktdetaljer">
+                @p.Vare.Titel
+                @p.Vare.Stoerrelse.Hoejde X @p.Vare.Stoerrelse.Bredde<br />
+                @p.Antal
+
+                @*@Html.DropDownListFor(model => ,
+                                           new SelectList(Model.KoebsAntal,
+                                               Model.ValgtKoebsAntal),
+                                       new { @class = "dl" })*@
+            </div>
+            <div>
+                -- FJERN ..
+            </div>
+        </div>
+    }    
+  
+}

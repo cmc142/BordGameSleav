@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Kontakt";
+    HtmlHelper.ClientValidationEnabled = true;
+}
+
+@model Boardgamesleeves.Models.Domain.Kontaktformular 
+
+
+<div class="kontaktoplysninger col-6 margin-top">
+    <h4>Kontakt</h4>
+    BoardGameSleeves <br />
+    Bjørnholms Allé 4-6 <br />
+    8260 Viby J <br />
+    Danmark <br /> <br />
+
+    Telefonnummer: +45 86 76 56 36 <br />
+    Email: info@boardgamesleeves.dk <br /> <br />
+</div>
+
+
+<div class="googlemaps col-6">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2223.140353266972!2d10.173692533697164!3d56.13738565554747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c40060c6c2b73%3A0x15d1597c2a51c624!2sBj%C3%B8rnholms+Alle+4%2C+8260+Viby!5e0!3m2!1sda!2sdk!4v1480768186049" class="kortifame"  frameborder="0"  allowfullscreen></iframe>
+</div>
+
+<div class="kontaktformular col-12">
+    <h3>Mail os</h3> <br />
+    @using (Html.BeginForm("SendBeskedPreview", "Kontakt"))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.LabelFor(m => m.Navn, new { @class = "bold margin-top" }) 
+        @Html.TextBoxFor(m => m.Navn, new { @class="kontrol" }) 
+        <div class="fejlbesked">
+            @Html.ValidationMessageFor(m => m.Navn) 
+        </div> // placeres ved siden af input feltet og med rød skrift
+
+        @Html.LabelFor(m => m.Email, new { @class="bold margin-top" }) 
+        @Html.TextBoxFor(m => m.Email, new { @class = "kontrol" }) 
+        <div class="fejlbesked">
+            @Html.ValidationMessageFor(m => m.Email) 
+        </div> // placeres ved siden af input feltet og med rød skrift
+
+        @Html.LabelFor(m => m.Emne, new { @class = "bold margin-top" }) 
+        @Html.TextBoxFor(m => m.Emne, new { @class = "kontrol" }) 
+        <div class="fejlbesked">
+            @Html.ValidationMessageFor(m => m.Emne) 
+        </div> // placeres ved siden af input feltet og med rød skrift
+
+        @Html.LabelFor(m => m.Besked, new { @class = "bold margin-top" }) 
+        @Html.TextAreaFor(m => m.Besked, new { @class = "txtArea" })
+        <div class="fejlbesked">
+            @Html.ValidationMessageFor(m => m.Besked) 
+        </div> // placeres ved siden af input feltet og med rød skrift
+
+
+        <div class="bundlinksKontakt">
+            <button type="submit" class="knap">Send</button>
+        </div>
+    }
+
+        @*"SendBeskedPreview", "Kontakt", FormMethod.Post*@
+    </div>

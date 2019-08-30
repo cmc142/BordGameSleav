@@ -1,0 +1,26 @@
+﻿
+    <nav>
+
+        <div class="rightmenu">
+              <a class="fa fa-lock fa-3x textdecorationnone adminlink" aria-hidden="true"
+               href="@Url.Action("Index", "Default", new { Area = "Admin" })"></a>
+
+
+            @Html.Action("KurvDetaljer", "Kurv")
+        </div>
+        <div class="leftmenu">
+           <span class="logo">
+               <a href="@Url.Action("Index", "Home", new {  })">
+                   <img src="~/Content/Images/logo-bgs.png" />
+               </a>
+            </span>
+        </div>
+
+        <div class="centermenu">
+           @Html.ActionLink("Forside", "Index", "Home")
+           @Html.ActionLink("Produkter", "Produktkatalog", "Produktkatalog")
+           @Html.ActionLink("Kontakt", "Kontakt", "Kontakt")          
+        </div>
+
+    </nav>
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Boardgamesleeves.Models.Stoerrelse>
+
+@{
+    ViewBag.Title = "Administration af størrelser";
+}
+
+<div class="opretbox">
+    @Html.ActionLink("Opret ny", "Create", null, new { @class = "knap" })
+</div>
+<div class="tablebox">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bredde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hoejde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoerrelsesType)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bredde)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hoejde)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoerrelsesType)
+                </td>
+                <td>
+                    @Html.ActionLink("[Vis]", "Details", new { id = item.Stoerrelseid }, new { @class = "editLink" })
+                    @Html.ActionLink("[Ret]", "Edit", new { id = item.Stoerrelseid }, new { @class = "editLink" })
+                    @Html.ActionLink("[Slet]", "Delete", new { id = item.Stoerrelseid }, new { @class = "editLink" })
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>

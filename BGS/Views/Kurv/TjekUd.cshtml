@@ -1,0 +1,51 @@
+﻿@model Boardgamesleeves.Models.ViewModels.TjekUdViewModel
+
+@{
+    ViewBag.Title = "Købs informationer";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="formgroup">
+        @Html.ValidationSummary(true, "", new { @class = "errorKurv" })
+
+        @Html.LabelFor(model => model.Fornavn, htmlAttributes: new { @class = "bold" })
+        @Html.EditorFor(model => model.Fornavn, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Fornavn, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Efternavn, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Efternavn, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Efternavn, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Bynavn, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Bynavn, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Bynavn, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Postnr, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Land, "", new { @class = "fejlbesked" })
+
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "bold margin-top" })
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "kontrol" } })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "fejlbesked" })
+    </div>
+        <div class="bundlinksTjekud">
+                @Html.ActionLink("Fortryd", "Index", "Kurv", 
+                new {  },
+                new
+                {
+                   @class = "knap"
+                })
+                <input type="submit" value="Til Betaling" class="knap" />
+        </div>
+}

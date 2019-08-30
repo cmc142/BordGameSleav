@@ -1,0 +1,41 @@
+﻿@model Boardgamesleeves.Models.Stoerrelse
+
+@{
+    ViewBag.Title = "Detaljer om";
+}
+
+
+<div class="formgroup">
+    <h2>.... den valgte størrelse</h2>
+
+    <dl class="dl">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bredde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bredde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hoejde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hoejde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoerrelsesType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoerrelsesType)
+        </dd>
+
+    </dl>
+</div>
+<div class="bundlinks">
+    @Html.ActionLink("Til oversigten", "Index", null, new { @class = "knap" })
+    @Html.ActionLink("Ret", "Edit", new { id = Model.Stoerrelseid }, new { @class = "knap" })
+</div>

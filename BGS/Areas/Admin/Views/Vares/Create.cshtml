@@ -1,0 +1,65 @@
+﻿@model Boardgamesleeves.Models.Vare
+
+@{
+    ViewBag.Title = "Opret Vare";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="formgroup">
+        @Html.ValidationSummary(true, "", new { @class = "errorKurv" })
+ 
+            @Html.LabelFor(model => model.Vareid, htmlAttributes: new { @class = "bold margin-top" }) 
+        <span class="noteVarid"> Eks. AT-10510, bemærk <>%., og mellemrum ikke må indgå.</span>
+            @Html.EditorFor(model => model.Vareid, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.Vareid, "", new { @class = "fejlbesked" })
+ 
+
+            @Html.LabelFor(model => model.Titel, htmlAttributes: new { @class = "bold margin-top" })     
+            @Html.EditorFor(model => model.Titel, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.Titel, "", new { @class = "fejlbesked" })
+ 
+
+            @Html.LabelFor(model => model.Pris, htmlAttributes: new { @class = "bold margin-top" })
+            @Html.EditorFor(model => model.Pris, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.Pris, "", new { @class = "fejlbesked" })
+
+
+            @Html.LabelFor(model => model.Kategori, htmlAttributes: new { @class = "bold margin-top" })
+            @Html.EditorFor(model => model.Kategori, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.Kategori, "", new { @class = "fejlbesked" })
+      
+
+            @Html.LabelFor(model => model.Beskrivelse, htmlAttributes: new { @class = "bold margin-top" })
+            @Html.TextAreaFor(model => model.Beskrivelse, new {  @class = "txtArea" })
+            @Html.ValidationMessageFor(model => model.Beskrivelse, "", new { @class = "fejlbesked" })
+      
+
+            @Html.LabelFor(model => model.Billedsti, htmlAttributes: new { @class = "bold margin-top" }) <span class="noteVarid"> Bemærk du selv skal ligge billedet i mappen: Content/Images/Produkt/.</span>
+            @Html.EditorFor(model => model.Billedsti, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.Billedsti, "", new { @class = "fejlbesked" })
+    
+            @Html.LabelFor(model => model.LagerAntal, htmlAttributes: new { @class = "bold margin-top" })
+            @Html.EditorFor(model => model.LagerAntal, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.LagerAntal, "", new { @class = "fejlbesked" })
+        
+
+            @Html.LabelFor(model => model.STK, htmlAttributes: new { @class = "bold margin-top" })
+            @Html.EditorFor(model => model.STK, new { htmlAttributes = new { @class = "kontrol" } })
+            @Html.ValidationMessageFor(model => model.STK, "", new { @class = "fejlbesked" })
+
+            @Html.LabelFor(model => model.Stoerrelseid, "Stoerrelseid", htmlAttributes: new { @class = "bold margin-top" })
+            @Html.DropDownList("Stoerrelseid", null, htmlAttributes: new { @class = "ddl2" })
+            @Html.ValidationMessageFor(model => model.Stoerrelseid, "", new { @class = "fejlbesked" })
+     
+
+        <div class="bundlinks">
+            @Html.ActionLink("Til oversigten", "Index", null, new { @class = "knap" })
+            <input type="submit" value="Opret" class="knap" />
+        </div>
+    </div>
+}
+

@@ -1,0 +1,21 @@
+﻿@model Boardgamesleeves.Models.ViewModels.Kurv
+
+<div class="iconKurv">  
+    <span class="fa fa-shopping-basket fa-2x hovergrey"  aria-hidden="true"></span>
+
+  
+    <div class="kurvIndhold">
+            <p>@Model.KurvVareList.Sum(x => x.Antal) produkt(er)
+            <br />
+            <span class="bold">Total:</span> @Model.TotalPris.ToString("n") DKK
+            <br />
+            <br />
+            @Html.ActionLink("Se kurv", "Index", "Kurv",
+                          new { },
+                          new { @class = "knapSmall" })
+        </p>
+    </div>
+
+    
+</div>
+

@@ -1,0 +1,50 @@
+﻿@using Boardgamesleeves.Models.ViewModels;
+@{
+    ViewBag.Title = "Bekræftelse";
+}
+
+@if (@ViewBag.KurvVare.GetType() == typeof(List<KurvVare>))
+{
+    <p class="text-fokus">
+        Din order vil nu blive behandlet. :)
+    </p>
+    <br/>    <br />
+    <h2>Din Bestilling</h2>
+    foreach (KurvVare p in @ViewBag.KurvVare as List<KurvVare>)
+    {
+        <div class="produkt">
+            <div class="col-3">
+                <img src="/Content/Images/Produkt/@p.Vare.Billedsti" onerror="this.src = '/Content/Images/Produkt/Default.png'" alt="@p.Vare.Titel" class="imgkurv" /> <br />
+
+            </div>
+            <div class="col-9">
+                <p class="titel bold">@p.Vare.Titel</p>
+                <p>
+                    <span class="bold">Størrelse:</span> @p.Vare.Stoerrelse.Hoejde X @p.Vare.Stoerrelse.Bredde
+                </p>
+                <p><span class="bold">Antal:</span> @p.Antal</p>
+                <p><span class="bold">STK Pris:</span> @p.Vare.Pris.ToString("n") DKK</p>
+                <p><span class="bold">Samlet pris:</span> @((@p.Vare.Pris * @p.Antal).ToString("n")) DKK</p>
+            </div>
+        
+        </div>
+    }
+
+    <div class="produkt">
+        <p class="totalKurv">Total pris:  @ViewBag.KurvPris.ToString("n") DKK </p>
+    </div>
+
+    <div class="bundlinks">
+        <a class="knap" href="javascript:window.print()">Print</a>
+        @Html.ActionLink("Til forsiden", "Index", new { Controller = "Home" }, new { @class = "knap" })
+    </div>
+
+}
+else
+{
+    <p class="errorKurv">
+       Det opstod en fejl under udskrivningen af bekræftelsen.
+    </p>
+}
+
+
